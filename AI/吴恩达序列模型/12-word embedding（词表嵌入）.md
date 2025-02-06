@@ -1,0 +1,5 @@
+![[12-word embedding（词表嵌入）.png]]
+![[12-word embedding（词表嵌入）-1.png]]
+![[12-word embedding（词表嵌入）-2.png]]
+![[12-word embedding（词表嵌入）-3.png]]
+![[12-word embedding（词表嵌入）-4.png]]
