@@ -5,9 +5,9 @@ Attention is all your need
 - 注意力计算的过程就是相关度计算的过程
 - 注意力矩阵大小是\[seq,seq]
 - decoder解码器在解码的时候，self-attention只计算q，计算的时候只考虑decoder端，不考虑encoder的word，kv由encoder编码器提供
-- 对层堆叠，原始论文中是6层encoder，6层decoder
+- 多层堆叠，原始论文中是6层encoder，6层decoder
 
-- postion encoding:位置编码，采用正余弦的方式来模拟位置信息
+- position encoding:位置编码，采用正余弦的方式来模拟位置信息
 - Layer Normalization：从layer层（特征维度，最后一个维度，word本身的embedding）进行归一化，方差为0，标准差为1，稳定数值，让训练更平稳
 - ADD：残差网络，对input和当前output做一个对位相加，让模型的结果至少不会更差，在设计的时候考虑经过了一系列的操作，self-attention，全连接后你能保证效果一定好吗，不一定，所以拼接原始信息，至少不会更差
 - masked-self-attention：decoder解码器里，只对当前词之前的词做self-attention，后面的mask遮蔽掉，不泄露信息，因为你本身就要预测后面的词，你还对它做self-attention那不就告诉他答案了。底层代码这部分就是一个list切片

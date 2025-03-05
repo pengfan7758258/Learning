@@ -1,0 +1,8 @@
+大模型每次生成token时会产生一个vocab大小的token概率分布，从这个概率分布中根据topK和topP来进一步采样
+
+topK：取概率最大的前K个token，提前抛弃一些几乎不可能被选择token，减少大模型的一些随机性和不可控性
+
+topP：概率之和小于这个值，先对概率排序，然后累加，一直累加到刚好等于这个值或者超过这个值，选择这些累加的token作为新的候选token
+
+temperature：影响概率分布的生成，在做softmax时对e的指数要除以一个t值；当t小于1时，概率值越大的会变的更大，小的变的更小。当t大于1时，概率值本身大的变小，小的会变大。最后结合topK或者topP来采样token
+![[14-topK,topP,temperature.png]]
