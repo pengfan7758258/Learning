@@ -1,7 +1,6 @@
 [地址](https://python.langchain.com/docs/tutorials/llm_chain/)
 
 <mark style="background: #BBFABBA6;">安装：</mark>
-- pip install langchain
 - pip install -qU "langchain[openai]"
 
 <mark style="background: #BBFABBA6;">下面是一个英文翻译意大利的任务：</mark>
@@ -64,7 +63,7 @@ prompt_template = ChatPromptTemplate.from_messages(
 
 # 动态填充prompt
 prompt = prompt_template.invoke({"language": "Italian", "text": "hi!"})
-#和开始的messages列表一样，就是SystemMessage和HumanMessage
+# 和开始的messages列表一样，就是SystemMessage和HumanMessage
 # ChatPromptValue(messages=[SystemMessage(content='Translate the following from English into Italian', additional_kwargs={}, response_metadata={}), HumanMessage(content='hi!', additional_kwargs={}, response_metadata={})])
 
 prompt.to_messages()

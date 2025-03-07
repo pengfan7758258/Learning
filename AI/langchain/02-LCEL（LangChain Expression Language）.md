@@ -7,7 +7,7 @@
 - 支持async：使用Runnable Async API可以异步运行任何基于LCEL的chain，能有效处理大规模的并发
 - 流式：支持流式输出，优化LLMS的第一个token出来之前经过的时间
 
-<mark style="background: #FFB8EBA6;">langGraph支持多个node，每个node可以写一个LCEL，node与node之间可以组合成chain，形成一个complex的graphs来解决非常复杂的任务</mark>
+<mark style="background: #FFB8EBA6;">langGraph支持多个node，每个node可以是一个LCEL，node与node之间可以组合成chain，形成一个complex的graphs来解决非常复杂的任务</mark>
 
 <mark style="background: #FFB86CA6;">两个重要的组成元素：</mark>
 - RunnableSequence
@@ -15,6 +15,6 @@
 	- 使用`|`特殊符号即可实现
 		- `runnable1 | runnable2`等价于`RunnableSequence([runnable1, runnable2])`
 - RunnableParallel
-	- 多个runnable可以并发执行，只要输入相同
+	- 多个runnable可以并发执行，需要输入相同
 	- 支持同步、异步执行
 - 其它的一些可以是上述两个的变体（e.g.,RunnableAssign,RunnableLambda）
