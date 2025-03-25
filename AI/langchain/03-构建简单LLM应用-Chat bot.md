@@ -87,8 +87,8 @@ trimmer = trim_messages(
     strategy="last", # 策略，last代表从最后开始保留
     token_counter=model, # token计数方式，model代表按照当前model的token方式计数
     include_system=True, # 是否包含system prompt
-    allow_partial=False, # 是否部分保存，False代表否，如果是True可能出现不是一句话
-    start_on="human", # 从HumanMessage开始
+    allow_partial=False, # 是否部分保存，False代表否，如果是True可能出现不是一句完整的话语
+    start_on="human", # 从HumanMessage开始保留
 )
 
 # graph中的state不止有messages后,StateGraph的state_schema参数、call_model函数的声明类要重新定义

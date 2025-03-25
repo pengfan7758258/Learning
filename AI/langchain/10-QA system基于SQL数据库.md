@@ -387,7 +387,7 @@ for step in agent.stream(
     step["messages"][-1].pretty_print()
 
 """
-因为省key的缘故，向量库只有20个专有名词，没效果
+因为省openai key的缘故，向量库只有20个专有名词，没效果
 """
 ```
 
