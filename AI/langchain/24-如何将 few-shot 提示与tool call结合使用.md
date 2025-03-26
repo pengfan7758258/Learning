@@ -109,4 +109,4 @@ chain.invoke(
 """
 ```
 
-<mark style="background: #FFB8EBA6;">真实工具agent调用跳转：</mark>[[16-如何 debug 你的 LLM apps]]
+<mark style="background: #FFB8EBA6;">真实工具agent调用获得结果：</mark>[[16-如何 debug 你的 LLM apps]]
