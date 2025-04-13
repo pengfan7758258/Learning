@@ -1,0 +1,2 @@
+- [地址]((https://github.com/ConardLi/easy-dataset)
+- 快速构建用于微调的合成数据
