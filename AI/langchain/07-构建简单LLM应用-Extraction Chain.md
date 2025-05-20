@@ -102,7 +102,7 @@ results
 # output: Data(people=[])
 # 结果是空列表，很好
 ```
-<mark style="background: #FFB86CA6;">tool_exampl_to_messages:</mark>
+<mark style="background: #FFB86CA6;">tool_example_to_messages:</mark>
 	- 将pydantic声明类转换成messages list
 ```python
 from langchain_core.utils.function_calling import tool_example_to_messages

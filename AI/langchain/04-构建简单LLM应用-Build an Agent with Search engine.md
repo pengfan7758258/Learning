@@ -60,7 +60,7 @@ response["messages"]
 # 可以看到，有ToolMessage的消息，证明tool被调用
 ```
 <mark style="background: #BBFABBA6;">Streaming Messages</mark>
-- 这里不是传统的流式输出，而是因为上述的.invoke是全部式的响应，包括了工具的调用和最终AI的整体返回，很耗费时间
+- 这里不是传统的流式输出，而是上述的.invoke是全部式的响应，包括了工具的调用和最终AI的整体返回，很耗费时间
 - .stream的agent输出方式能让你看到每一步的输出，不至于等待太久
 ```python
 for step in agent_executor.stream(

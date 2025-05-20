@@ -126,10 +126,10 @@ print(output["messages"][-1].pretty_print())
 ================================== Ai Message ================================== I don’t know your name. What would you like me to call you?
 """
 ```
-<mark style="background: #ADCCFFA6;">Steaming流式:</mark>
+<mark style="background: #ADCCFFA6;">Streaming流式:</mark>
 ```python
 """
-这个steam的输出方式不像是真实的流式，因为它是走的call_model函数
+这个stream的输出方式不像是真实的流式，因为它是走的call_model函数
 而这个函数我们定义的时候就是内部直接调用model.invoke
 所以其实只是LLM整体return后又包装了一层
 """
