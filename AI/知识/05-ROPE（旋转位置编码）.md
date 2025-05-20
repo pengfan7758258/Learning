@@ -1,3 +1,4 @@
+[b站地址](https://www.bilibili.com/video/BV1ErPkeSEHn/?spm_id_from=333.337.search-card.all.click&vd_source=e4234f5ddbe45b813cf4296e06e14b9b)
 能支持更长的context上下文推理（输入长度）
 
 ![[05-ROPE（旋转位置编码）.png]]
