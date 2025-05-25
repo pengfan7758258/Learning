@@ -69,6 +69,7 @@ RUN apt-get update && apt-get install -y \
 RUN python -m pip install --upgrade pip && \
     pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cu124 && \
     pip install flash-attn --no-build-isolation
+# --no-build-isolation：别用临时隔离环境，就直接用我当前环境里的依赖来构建这个包
 ```
 4. <mark style="background: #FFB86CA6;">Four</mark>：准备开发目录、具体项目的开发环境
 ```Dockerfile
