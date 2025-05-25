@@ -15,7 +15,7 @@ examples文件夹有：
 
 <mark style="background: #ADCCFFA6;">我们要做的是：</mark>
 1. 找一个你要train的模式，复制一份它的yaml文件修改，譬如lora微调qwen2.5：
-	- 红色框是我修改的：模型路径、我自己的数据集（data/data_info.json的key）、输出的保存路径、template模版（这个根据自己模型的选择修改）
+	- 红色框是我修改的：模型路径、我自己的数据集（data/data_info.json的key，也需要手动上传的数据集后面会讲）、输出的保存路径、template模版（这个根据自己模型的选择修改）
 	- 其它超参数可以根据自己需求修改![[01-微调、推理、合并（命令版） 6.png]]
 2. 自己的数据集：
 	1. 根据选择微调的模型，参考data下的格式的demo.json文件，或者自己网上搜索模型的指令微调数据格式和字段，改好后放入data下
