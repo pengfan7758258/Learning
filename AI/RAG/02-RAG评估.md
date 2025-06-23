@@ -1,0 +1,3 @@
+- RAGas（RAG Assessment)：除了评估，还能从数据集中生成测试集
+	- [csdn1](https://blog.csdn.net/qq_36722887/article/details/148519357)
+	- [csdn2](https://blog.csdn.net/weixin_42608414/article/details/135355723)
