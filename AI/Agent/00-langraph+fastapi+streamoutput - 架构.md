@@ -44,7 +44,7 @@ f"Today is {date.today()}"
 	builder.add_edge("tools", "assistant")
 	return builder.compile()
 ```
-![[Pasted image 20250624013741.png]]
+![[00-langraph+fastapi+streamoutput - 架构 -1.png]]
 
 
 # AgentManager
