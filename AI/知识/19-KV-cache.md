@@ -4,3 +4,7 @@
 
 步骤分解：
 ![[19-KV cache-1.png]]
+
+
+## kv cache在线估算工具
+https://lmcache.ai/kv_cache_calculator.html
