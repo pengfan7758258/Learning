@@ -1,0 +1,2 @@
+from fastparquet import write
+用来存储df或者numpy的大数据文件巨快，还能压缩，存储的是parquet文件
