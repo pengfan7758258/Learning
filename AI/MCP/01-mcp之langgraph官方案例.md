@@ -118,7 +118,7 @@ async def main():
 		print(state["messages"])
 		print("-"*30+"\n\n")
 		response = llm_with_tools.invoke(state["messages"])
-		return {"messages": response}
+		return {"messages": [response]}
 	
 	builder = StateGraph(MessagesState)
 	builder.add_node(call_model)
