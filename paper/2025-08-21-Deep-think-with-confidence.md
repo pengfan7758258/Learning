@@ -44,13 +44,13 @@ After generating next token x:
 提出两种基于最低组置信度（lowest group confidence）的算法：DeepConf-low and DeepConf-high，在线推理时提前停止生成，它们依赖于两个组件，offline warmup and adaptive sampling
 ![[2025-08-21-Deep-think-with-confidence 17.png]]
 1. 输入P
-2. offline warmup：初始化$N_{init}$个traces，计算每个trace的C（Average Trace Confidence）
+2. offline warmup：初始化$N_{init}$个traces，计算每个trace的C（Lowest group confidence）
 3. 计算停止阈值s，从集合$\{C_0,C_1,...,C_{init-1}\}$取出在η百分比阶段的C当做s
 4. 初始化一个T，这个T已经生成了k个traces。用k个traces得到所有的答案的投票数，和投票数最多的$\hat{a}$
 5. 在线推理：两层while循环
 	- 每个P最多生成B个traces，设置是否继续生成trace的阈值$\tau$。
 	- 是否生成当前trace的下一个token取决于当前token生成后的group confidence与阈值s
-	- 当前trace停止生成后，将这个trace加入到T中，计算并更新每个答案的投票数和投票数最多的$\hat{a}$DeepConf-low
+	- 当前trace停止生成后，将这个trace加入到T中，计算并更新每个答案的投票数和投票数最多的$\hat{a}$
 
 # 公式
 # Token Entropy
@@ -61,6 +61,16 @@ j：vocabulary第j个token概率（where $P_i(j)$ represents the probability of 
 ![[2025-08-21-Deep-think-with-confidence 2.png]]
 $C_i$：当前token的token confidence
 k：取top k的概率
+对于信息量：
+- 当P越小，-logP越大，信息量越多，越不自信
+- 当P越大，-logP越小，信息量越少，越自信
+- 这里论文中有提到C越大越自信和数学公式有点违背，这里还需要具体看代码实现(High confidence corresponds to peaked distributions and greater model certainty, while low confidence indicates uncertainty in token prediction.)
+B站博主“五道口纳什”对这个的理解：
+![[2025-08-21-Deep-think-with-confidence 20.png]]
+自己实验：
+- 很明显，peaked分布C越大，Flat分布C越小
+![[2025-08-21-Deep-think-with-confidence 21.png]]
+
 chatgpt的QA：
 ![[2025-08-21-Deep-think-with-confidence.png]]
 # Average Trace Confidence
@@ -105,6 +115,10 @@ $C_t$：trace 的置信度
 $\eta$：百分比，DeepConf-low用 top η = 10%，那就是100-10=90%，对应于取第90百分位数作为s；DeepConf-high用top η = 90%，那就是100-90=10%，对应于取第10百分位数作为s
 chatgpt的QA：
 ![[2025-08-21-Deep-think-with-confidence 14.png]]
+![[2025-08-21-Deep-think-with-confidence 19.png]]
+如果说$Percentile_{100-\eta}$是从小到大排序，那么：
+- Deepconf-low：拿到一个较大s阈值，越容易停止生成token，生成较少token
+- Deepconf-high：拿到一个较小s阈值，越难停止生成，生成更多token
 # Adaptive Sampling
 ![[2025-08-21-Deep-think-with-confidence 15.png]]
 基于question的难度生成多少traces
@@ -114,3 +128,8 @@ $V(\hat{a})$：Confidence-Weighted Majority Voting
 $\sum_{a} V(a)$：所有的 Confidence-Weighted Majority Voting累和
 B：固定的一个trace数量，达到这个数量后不再生成新的trace
 operate：如果$\tau>\beta$   ，会再生成新的trace，直到生成固定大小B个trace。相反如果$\tau<\beta$，停止生成trace，在已有traces中分析answer
+
+
+# 代码实现
+https://github.com/facebookresearch/deepconf/blob/main/analysis_offline.py
+https://jiaweizzhao.github.io/deepconf/static/htmls/code_example.html
