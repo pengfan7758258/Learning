@@ -25,7 +25,7 @@ pip install modelscope
 编辑vim download_paddleocr_vl.py：
 	from modelscope import snapshot_download
 	# 下载完整模型（包含 PaddleOCR-VL-0.9B 和 PP-DocLayoutV2）
-	model_dir = snapshot_download('PaddlePaddle/PaddleOCR-VL', local_dir='.')
+	model_dir = snapshot_download('PaddlePaddle/PaddleOCR-VL', local_dir='./PaddleOCR-VL-0.9B')
 执行下载：python download_paddleocr_vl.py
 下载成功后检查文件：PP-DocLayoutV2应该是直接在当前目录下，但是其它文件散乱，我们`mkdir PaddleOCR-VL-0.9B`，将其余文件放入PaddleOCR-VL-0.9B中
 
