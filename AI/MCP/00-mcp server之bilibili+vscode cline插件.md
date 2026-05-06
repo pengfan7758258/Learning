@@ -148,3 +148,20 @@ if __name__ == "__main__":
 # vscode cline 插件
 ![[00-mcp server之bilibili+vscode cline插件.png]]
 配置成功会自动将你的mcp server更新到左边，绿色按钮默认打开。
+
+cline_mcp.settings.json模版
+```
+{
+	"mcpServers": {
+	"my-mcp": {
+		"disabled": false,
+		"timeout": 60,
+		"type": "stdio",
+		"command": "/home/pengfan/miniconda3/envs/llm_hub/bin/python",
+		"args": [
+			"/home/pengfan/project/PPTAgent/deeppresenter/tools/test_server.py"
+			]
+		}
+	}
+}
+```
